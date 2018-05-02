@@ -1,6 +1,6 @@
 .App header ul {
   list-style: none;
-  margin: 0;
+  margin: auto;
   padding: 0;
   width: 100%;
   text-align: center;
@@ -8,7 +8,7 @@
 
 .App header li {
   display: inline-block;
-  margin: 20px;
+  margin: 10px;
 }
 
 .App header a {

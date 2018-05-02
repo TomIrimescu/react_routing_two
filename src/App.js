@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-  BrowserRouter,
   Route,
   NavLink,
   Switch,
@@ -17,26 +16,13 @@ import "./App.css";
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
         <div className="App">
           <header>
             <nav>
               <ul>
                 <li>
                   <NavLink
-                    to="/users"
-                    exact
-                    activeStyle={{
-                      color: "red"
-                    }}
-                  >
-                    Users
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
                     to="/courses"
-                    exact
                     activeStyle={{
                       color: "red"
                     }}
@@ -44,18 +30,28 @@ class App extends Component {
                     Courses
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink
+                    to="/users"
+                    activeStyle={{
+                      color: "red"
+                    }}
+                  >
+                    Users
+                  </NavLink>
+                </li>
               </ul>
             </nav>
           </header>
           <Switch>
             <Route path="/users" component={Users} />
+            <Route path="/courses/course" component={Course} />
             <Route path="/courses" component={Courses} />
-            <Route path="/course" component={Course} />
             <Redirect from="/all-courses" to="/courses" />
+            <Redirect exact from="/" to="/courses" />
             <Route component={NotFound} />
           </Switch>
         </div>
-      </BrowserRouter>
     );
   }
 }

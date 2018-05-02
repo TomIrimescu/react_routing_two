@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./Courses.css";
 
+
 class Courses extends Component {
   state = {
     courses: [
@@ -20,8 +21,8 @@ class Courses extends Component {
           <section className="Courses">
             {this.state.courses.map(course => {
               return (
-                <Link to={"/course"}>
-                  <article className="Course" key={course.id}>
+                <Link to={this.props.match.url + "/course"} key={course.id}>
+                  <article className="Course">
                     {course.title}
                   </article>
                 </Link>

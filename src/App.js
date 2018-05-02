@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 
 import Courses from "./containers/Courses/Courses";
-import Course from "./containers/Course/Course";
+// import Course from "./containers/Course/Course";
 import Users from "./containers/Users/Users";
 import NotFound from "./components/NotFound/NotFound";
 
@@ -45,7 +45,8 @@ class App extends Component {
           </header>
           <Switch>
             <Route path="/users" component={Users} />
-            <Route path="/courses/course" component={Course} />
+            {/*<Route path="/courses/:courseId/:courseTitle" component={Course} />*/}
+            {/*<Route path="/courses/:courseId" component={Course} /> -moved as nested route into Courses.js*/}
             <Route path="/courses" component={Courses} />
             <Redirect from="/all-courses" to="/courses" />
             <Redirect exact from="/" to="/courses" />

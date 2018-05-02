@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 
 import "./Courses.css";
+import Course from "../Course/Course";
 
 
 class Courses extends Component {
@@ -18,10 +19,15 @@ class Courses extends Component {
 
         <div>
           <h1>Amazing Udemy Courses</h1>
-          <section className="Courses">
+          <section className="Courses"> {/*<Link to={this.props.match.url + "/" + course.id + "/" + course.title} key={course.id}>*/}
             {this.state.courses.map(course => {
               return (
-                <Link to={this.props.match.url + "/course"} key={course.id}>
+                <Link
+                  key={course.id}
+                  to={{
+                    pathname: this.props.match.url + "/" + course.id,
+                    search: "?courseTitle=" + course.title
+                  }}>
                   <article className="Course">
                     {course.title}
                   </article>
@@ -29,6 +35,7 @@ class Courses extends Component {
               );
             })}
           </section>
+            <Route path={ this.props.match.url + "/:courseId"} component={Course} /> {/*nested route*/}
         </div>
 
     );
